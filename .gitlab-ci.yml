@@ -1,0 +1,18 @@
+##
+stages:         
+  - check
+  - test
+
+matlab-check-job: 
+  tags:
+    - modelscape     
+  stage: check
+  script:
+    - matlab -batch "openProject(pwd); buildtool check;"
+
+matlab-test-job: 
+  tags:
+    - modelscape     
+  stage: test
+  script:
+    - matlab -batch "openProject(pwd); buildtool test;"
